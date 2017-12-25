@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.dosyayol = new System.Windows.Forms.TextBox();
             this.btnyol = new System.Windows.Forms.Button();
             this.lblislem = new System.Windows.Forms.Label();
@@ -83,8 +84,9 @@
             this.Controls.Add(this.lblislem);
             this.Controls.Add(this.btnyol);
             this.Controls.Add(this.dosyayol);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form3";
-            this.Text = "Form3";
+            this.Text = "Dosya Seç";
             this.ResumeLayout(false);
             this.PerformLayout();
 

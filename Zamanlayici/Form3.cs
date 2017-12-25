@@ -31,10 +31,7 @@ namespace Zamanlayici
                 openFileDialog1.Title = "Dosya Seç";
                 openFileDialog1.ShowDialog();
                 dosyayol.Text = openFileDialog1.FileName;
-                cek.url.Add(cek.tikla,openFileDialog1.FileName);
-                cek.dsyadi.Add(cek.tikla,"Alarm" + "(" + openFileDialog1.SafeFileName + ")");
-
-
+              
 
              }
              if (cek.chcksec==1)
@@ -44,8 +41,7 @@ namespace Zamanlayici
                  openFileDialog1.Title = "Dosya Seç";
                  openFileDialog1.ShowDialog();
                  dosyayol.Text = openFileDialog1.FileName;
-                 cek.prgmsec.Add("Çalıştır" + "(" + openFileDialog1.SafeFileName + ")");
-                 cek.prgmurl.Add(openFileDialog1.FileName);
+               
              }
              
 
@@ -54,9 +50,22 @@ namespace Zamanlayici
 
         private void button1_Click(object sender, EventArgs e)
         {
-         
+            if (cek.chckalarm == 1)
+            {
+
+                cek.url.Add(cek.tikla, openFileDialog1.FileName);
+                cek.dsyadi.Add(cek.tikla, "Alarm" + "(" + openFileDialog1.SafeFileName + ")");
+                
+            }
+            if (cek.chcksec == 1)
+            {
+                cek.prgmsec.Add(cek.tikla, "Çalıştır" + "(" + openFileDialog1.SafeFileName + ")");
+                cek.prgmurl.Add(cek.tikla, openFileDialog1.FileName);
+            }
+
             this.Close();
             
         }
+        
     }
 }

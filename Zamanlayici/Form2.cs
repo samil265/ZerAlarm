@@ -28,20 +28,28 @@ namespace Zamanlayici
         {
             
             Form1 al = (Form1)Application.OpenForms["Form1"];
-            al.checkBox1.Checked = true;
+            if (al.chckalarm == 1)
+            {
+                al.kntrlx = 1;
+            }else
+            {
+                al.kntrly = 1;
+            }
+            ((Form1)Application.OpenForms["Form1"]).alarmkur1();
             if (hatirlat.Checked==true) {
                 al.hatirla.Add(hatirla.Text);
-            }    
-           
-            al.checkBox3.Checked = true;
+            }
+
+            
             this.Close();
           
         }
            
         private void Form2_Load(object sender, EventArgs e)
         {
-            alarm1.Value = DateTime.Now.Hour;
-            alarm2.Value = DateTime.Now.Minute;
+            saat.Value = DateTime.Now.Hour;
+            dakika.Value = DateTime.Now.Minute;
+            saniye.Value = DateTime.Now.Second;
           
         }
         Form1 kntrl = (Form1)Application.OpenForms["Form1"];
@@ -111,6 +119,11 @@ namespace Zamanlayici
             {
                 kntrl.chckbilgkapat = 0;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

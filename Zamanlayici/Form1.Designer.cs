@@ -29,13 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.açToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.çıkışToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.groupBox2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -60,46 +65,64 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(92, 38);
+            this.label3.Location = new System.Drawing.Point(70, 38);
             this.label3.Margin = new System.Windows.Forms.Padding(150, 0, 150, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 39);
+            this.label3.Size = new System.Drawing.Size(0, 39);
             this.label3.TabIndex = 3;
-            this.label3.Text = "saaat";
             // 
             // button3
             // 
             this.button3.AutoEllipsis = true;
+            this.button3.BackColor = System.Drawing.Color.ForestGreen;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button3.Location = new System.Drawing.Point(42, 137);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.ImageKey = "if_add-alarm_326488.png";
+            this.button3.ImageList = this.ımageList1;
+            this.button3.Location = new System.Drawing.Point(12, 128);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(122, 33);
+            this.button3.Size = new System.Drawing.Size(133, 51);
             this.button3.TabIndex = 7;
-            this.button3.Text = "Yeni Alarm";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Text = "      Yeni Alarm";
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // checkBox1
+            // ımageList1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(210, 147);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "if_add-alarm_326488.png");
             // 
-            // checkBox3
+            // contextMenuStrip1
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(412, 140);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(80, 17);
-            this.checkBox3.TabIndex = 9;
-            this.checkBox3.Text = "checkBox3";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.açToolStripMenuItem,
+            this.çıkışToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(155, 48);
+            // 
+            // açToolStripMenuItem
+            // 
+            this.açToolStripMenuItem.Name = "açToolStripMenuItem";
+            this.açToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.açToolStripMenuItem.Text = "Uygulamayı Aç";
+            this.açToolStripMenuItem.Click += new System.EventHandler(this.açToolStripMenuItem_Click);
+            // 
+            // çıkışToolStripMenuItem
+            // 
+            this.çıkışToolStripMenuItem.Name = "çıkışToolStripMenuItem";
+            this.çıkışToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.çıkışToolStripMenuItem.Text = "Çıkış";
+            this.çıkışToolStripMenuItem.Click += new System.EventHandler(this.çıkışToolStripMenuItem_Click);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "Ayarlar";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // Form1
             // 
@@ -107,18 +130,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(496, 520);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox1);
+            this.ClientSize = new System.Drawing.Size(483, 417);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.groupBox2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "ZERAlarm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Move += new System.EventHandler(this.Form1_Move);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -126,9 +151,12 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem açToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem çıkışToolStripMenuItem;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Button button3;
-        public System.Windows.Forms.CheckBox checkBox1;
-        public System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.ImageList ımageList1;
     }
 }
 
